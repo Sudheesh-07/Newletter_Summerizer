@@ -59,4 +59,4 @@ def arts(request):
                   , context=context)
 
 def aboutus(request):
-    return render(request,template_name="aboutus.html")
+    return render(request, 'aboutus.html')

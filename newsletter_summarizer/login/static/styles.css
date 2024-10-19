@@ -35,7 +35,7 @@ header {
     text-align: center;
     position: fixed;
     width: 100%;
-    height: 71px;
+    height: 75px;
     top: 0;
     z-index: 1001;
 }
@@ -49,6 +49,18 @@ header span1 {
     color: red; /* Accent color for header */
 }
 
+header h3 {
+    color: white;
+    text-align: left; /* Aligns the text to the left */
+    width: 100%; /* Ensures the h3 takes up the full width of its container */
+    height: 30px; /* Fixes the height */
+    border-radius: 10px;
+    margin-left: 30px; /* Removes any left margin */
+    padding-left: 10px; /* Optionally, adds padding for slight spacing */
+    margin-top: 0px;
+}
+
+
 /* Navigation styling */
 nav {
     position: fixed;
@@ -61,7 +73,7 @@ nav {
 .menu-icon, .close-icon {
     font-size: 30px;
     cursor: pointer;
-    color: black; /* Color of menu icons */
+    color: white; /* Color of menu icons */
     margin: 0 5px;
 }
 
@@ -80,7 +92,7 @@ nav {
 #category-menu {
     list-style-type: none;
     display: block;
-    background-color: #131852; /* Menu Background Color */
+    background-color: hsl(204, 54%, 21%); /* Menu Background Color */
     padding: 15px;
     position: fixed;
     top: 71px; /* Positioned below the header */
@@ -100,7 +112,7 @@ nav {
 #category-menu li a {
     list-style: none;
     margin: 15px 0;
-    border-bottom: 2px solid white; /* Dark Red Divider */
+    border-bottom: 2px solid black; /* Dark Red Divider */
     text-decoration: none; /* Remove underline from links */
     transition: background-color 0.3s, transform 0.2s;
 }
@@ -129,7 +141,7 @@ nav {
 /* Hover effect for menu items */
 #category-menu li a:hover {
     color: black; /* Text Color */
-    background-color: #0D92F4; /* Dark Red Background on Hover */
+    background-color: #d9d9d9; /* Dark Red Background on Hover */
     border-radius: 10px;
     /*animation: loadingBar 0.5s forwards;*/
 }
@@ -168,7 +180,7 @@ nav {
     transition: transform 0.3s ease;
     position: relative;
     width: 100%;
-    border: 5px solid #0e1349; /* Dark Red Border */
+    border: 2.5px solid #0e1349; /* Dark Red Border */
 }
 
 /* Images inside the news container */
@@ -236,7 +248,7 @@ nav {
 /* Hover effect for news blocks */
 .news-container:hover {
     transform: scale(1.03);  /* Scale the block slightly on hover */
-    border: 3px solid #0D92F4;
+    border: 5px solid #0e3149;
 }
 
 
@@ -260,13 +272,13 @@ nav {
 
 /* Right container (summary and link) */
 .news-container-right {
-    background-color: #0e1349; /* Dark Grey */
+    background-color: #0e3149; /* Dark Grey */
     border-radius: 10px;
     display: flex; /* Corrected from display-flex to display: flex */
     position: relative;
     flex: auto;
     flex-grow: 1;
-    text-align: left;
+    text-align: center;
     padding: 0.4rem;
     justify-content: space-between;
     flex-direction: column;
@@ -283,6 +295,25 @@ nav {
     align-items: center;
 }
 
+.news-container-right h3{
+    align-items: center;
+    top:0px;
+    color: black;
+    text-align: center;
+}
+
+.news-container-right p{
+    padding: 5px;
+}
+
+.news-container-right p:first-letter {
+  font-weight: bold;
+  font-size: 25px;
+  font-size: 2rem;
+  line-height: 10px;
+  line-height: 1rem;
+  text-transform: uppercase;
+}
 /* Summary section styling */
 .news-summary {
     background-color:  #d9d9d9; /* Dark Grey */
@@ -421,4 +452,70 @@ footer {
     margin: 0;
     font-size: 0.85rem;
     color: #D3D3D3;
+}
+
+
+/* Media query for smaller screens (below 768px)*/
+@media (max-width: 500px) {
+    body {
+        padding-top: 60px;
+    }
+
+    header {
+        padding: 17px;
+        font-size: 0.9rem; /* Reduce font size */
+    }
+
+    .menu-icon, .close-icon {
+        font-size: 24px; /* Reduce icon size */
+    }
+
+    #category-menu {
+        width: 100%; /* Make the menu take the full width on small screens */
+        left: -100%; /* Start off-screen */
+    }
+
+    #category-menu.show {
+        left: 0; /* Slide in from the left */
+    }
+
+    .news-block {
+        padding: 1rem;
+        margin: 10px 0;
+    }
+
+    .news-container {
+        flex-direction: column; /* Stack the content vertically */
+        padding: 1rem;
+        border-radius: 5px; /* Reduce border radius */
+    }
+
+    .news-container img {
+        width: 100%; /* Make the image full-width*/
+    }
+
+    .news-container-left, .news-container-right {
+        width: 100%; /* Stack content on top of each other */
+        padding: 0.5rem;
+    }
+
+    .news-summary {
+        padding: 1rem; /* Add padding for readability */
+    }
+
+    footer {
+        padding: 15px 0; /* Reduce padding in the footer*/
+    }
+
+    .footer-content {
+        text-align: center;
+    }
+
+    .footer-content h3 {
+        font-size: 1rem; /* Adjust font size */
+    }
+
+    .footer-content p {
+        font-size: 0.8rem; /* Adjust paragraph font size*/
+    }
 }

@@ -72,7 +72,9 @@ arin{
 
 * Will fix the about us page issue and make it responsive according to different screens
 
-* Partially Implemented the Takeaways kal puira karunga
+* Fully Implemented the Takeaways
+
+* Created an directory for images in the static folder and completed the About us page structure
 
 *
 

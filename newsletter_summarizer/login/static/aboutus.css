@@ -8,10 +8,11 @@
 body {
     padding-top: 90px;
     font-family: 'Times New Roman', Times, serif;
-    background-color: #63737a; /* Updated to #07b092 */
+    background-color: #63737a; /* Light background color */
     color: #D3D3D3;
     transition: filter 0.4s ease;
 }
+
 
 /* Overlay styling */
 .overlay {
@@ -29,7 +30,7 @@ body {
 /* Header styling */
 header {
     background-color: #0e3149; /* Header Background Color */
-    color: white;
+    color: white; /* Light Grey */
     padding: 10px;
     text-align: center;
     position: fixed;
@@ -60,7 +61,7 @@ nav {
 .menu-icon, .close-icon {
     font-size: 30px;
     cursor: pointer;
-    color: black;
+    color: black; /* Color of menu icons */
     margin: 0 5px;
 }
 
@@ -79,10 +80,10 @@ nav {
 #category-menu {
     list-style-type: none;
     display: block;
-    background-color: #0e3149; /* Updated to #FFD700 */
+    background-color: #131852; /* Menu Background Color */
     padding: 15px;
     position: fixed;
-    top: 71px;
+    top: 71px; /* Positioned below the header */
     left: -250px;
     height: calc(100% - 70px);
     width: 250px;
@@ -92,31 +93,31 @@ nav {
 
 /* Menu in open state */
 #category-menu.show {
-    left: 0;
+    left: 0; /* Slide in from the left */
 }
 
 /* Menu items (links) */
 #category-menu li a {
     list-style: none;
     margin: 15px 0;
-    border-bottom: 2px solid #;
-    text-decoration: none;
+    border-bottom: 2px solid white; /* Dark Red Divider */
+    text-decoration: none; /* Remove underline from links */
     transition: background-color 0.3s, transform 0.2s;
 }
 
 /* Link text inside the menu */
 #category-menu li a {
-    color: #63737a;
+    color: white; /* Light Grey */
     display: block;
     padding: 10px;
     text-decoration: none;
 }
 
-/* Active menu item */
+/* Active menu item*/
 #category-menu li a.active {
     color: black;
     font-weight: bold;
-    background-color: #07b092; /* Updated to #07b092 */
+    background-color: #FEFAE0;
     border-radius: 10px;
 }
 
@@ -127,9 +128,10 @@ nav {
 
 /* Hover effect for menu items */
 #category-menu li a:hover {
-    color: black;
-    background-color: #07b092; /* Updated to #07b092 */
+    color: black; /* Text Color */
+    background-color: #0D92F4; /* Dark Red Background on Hover */
     border-radius: 10px;
+    /*animation: loadingBar 0.5s forwards;*/
 }
 
 /* Hover animation */
@@ -141,6 +143,73 @@ nav {
         width: 100%;
     }
 }
+
+/* Details Section Styling */
+.details {
+    position: relative;
+    padding: 50px 20px;
+    background-color: #0e3149; /* Dark blue background */
+    color: white;
+    text-align: center;
+}
+
+.details-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    overflow: hidden;
+}
+
+.details-background .background-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.4; /* Semi-transparent background image */
+}
+
+.details-content {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.details h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+    font-weight: bold;
+    color: #FFD700;
+}
+
+.details p {
+    font-size: 1.2rem;
+    line-height: 1.8;
+    margin-bottom: 1.5rem;
+    color: #D3D3D3;
+}
+
+.images-section {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-top: 30px;
+}
+
+.images-section img {
+    width: 300px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 10px;
+    transition: transform 0.3s ease;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.images-section img:hover {
+    transform: scale(1.05); /* Slight zoom on hover */
+}
+
 
 /* Team section styling */
 .about-us {
@@ -159,7 +228,7 @@ nav {
     background-color: #d9d9d9;
     border-radius: 10px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    width: 65%;
+    width: 75%;
     margin: 1rem;
     padding: 1.5rem;
     text-align: center;
@@ -169,12 +238,12 @@ nav {
     align-items: center;
     overflow: hidden;
     max-width: 600px;
-    border: 5px solid #0e1349;
+    border: 2.5px solid #0e1349;
 }
 
 .team-container:hover {
     transform: scale(1.03);
-    border: 3px solid #0D92F4;
+    border: 4px solid #0e1349;
 }
 
 .team-container:nth-child(odd) {
@@ -319,8 +388,14 @@ footer {
     color: black;
 }
 
+.footer-content quick-links{
+    flex-direction: column;
+}
+
 .quick-links ul {
     list-style: none;
+    display: flex;
+    flex-direction: column;
     padding: 0;
 }
 
@@ -370,4 +445,70 @@ footer {
     margin: 0;
     font-size: 0.85rem;
     color: #D3D3D3;
+}
+
+
+/* Media query for smaller screens (below 768px)*/
+@media (max-width: 1000px) {
+    body {
+        padding-top: 60px;
+    }
+
+    header {
+        padding: 17px;
+        font-size: 0.9rem; /* Reduce font size */
+    }
+
+    .menu-icon, .close-icon {
+        font-size: 24px; /* Reduce icon size */
+    }
+
+    #category-menu {
+        width: 100%; /* Make the menu take the full width on small screens */
+        left: -100%; /* Start off-screen */
+    }
+
+    #category-menu.show {
+        left: 0; /* Slide in from the left */
+    }
+
+    .news-block {
+        padding: 1rem;
+        margin: 10px 0;
+    }
+
+    .news-container {
+        flex-direction: column; /* Stack the content vertically */
+        padding: 1rem;
+        border-radius: 5px; /* Reduce border radius */
+    }
+
+    .news-container img {
+        width: 100%; /* Make the image full-width*/
+    }
+
+    .news-container-left, .news-container-right {
+        width: 100%; /* Stack content on top of each other */
+        padding: 0.5rem;
+    }
+
+    .news-summary {
+        padding: 1rem; /* Add padding for readability */
+    }
+
+    footer {
+        padding: 15px 0; /* Reduce padding in the footer*/
+    }
+
+    .footer-content {
+        text-align: center;
+    }
+
+    .footer-content h3 {
+        font-size: 1rem; /* Adjust font size */
+    }
+
+    .footer-content p {
+        font-size: 0.8rem; /* Adjust paragraph font size*/
+    }
 }

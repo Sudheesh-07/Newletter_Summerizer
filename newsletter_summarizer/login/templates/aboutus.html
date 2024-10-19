@@ -7,6 +7,530 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     {% load static %}
     <link rel="stylesheet" href="{% static 'aboutus.css' %}">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Body background color */
+        body {
+            padding-top: 90px;
+            font-family: 'Times New Roman', Times, serif;
+            background-color: #dad4b5; /* Light background color */
+            color: #D3D3D3;
+            transition: filter 0.4s ease;
+        }
+
+
+        /* Overlay styling */
+        .overlay {
+            position: fixed;
+            top: 71px;
+            left: 250px;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5); /* Dark transparent overlay */
+            display: none;
+            z-index: 999;
+            transition: opacity 0.4s ease;
+        }
+
+        /* Header styling */
+        header {
+            background-color: #07b092; /* Header Background Color */
+            color: white; /* Light Grey */
+            padding: 10px;
+            text-align: center;
+            position: fixed;
+            width: 100%;
+            height: 71px;
+            top: 0;
+            z-index: 1001;
+        }
+
+        /* Span within header */
+        header span {
+            color: white; /* Accent color for header */
+        }
+
+        header span1 {
+            color: red; /* Accent color for header */
+        }
+
+        /* Navigation styling */
+        nav {
+            position: fixed;
+            top: 10px;
+            left: 10px;
+            z-index: 1001;
+        }
+
+        /* Menu icon */
+        .menu-icon, .close-icon {
+            font-size: 30px;
+            cursor: pointer;
+            color: white; /* Color of menu icons */
+            margin: 0 5px;
+        }
+
+        .close-icon {
+            font-size: 30px;
+            cursor: pointer;
+            color: black;
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            display: none;
+            z-index: 1002;
+        }
+
+        /* Menu items container */
+        #category-menu {
+            list-style-type: none;
+            display: block;
+            background-color: #131852; /* Menu Background Color */
+            padding: 15px;
+            position: fixed;
+            top: 71px; /* Positioned below the header */
+            left: -250px;
+            height: calc(100% - 70px);
+            width: 250px;
+            transition: left 0.4s ease;
+            z-index: 1001;
+        }
+
+        /* Menu in open state */
+        #category-menu.show {
+            left: 0; /* Slide in from the left */
+        }
+
+        /* Menu items (links) */
+        #category-menu li a {
+            list-style: none;
+            margin: 15px 0;
+            border-bottom: 2px solid white; /* Dark Red Divider */
+            text-decoration: none; /* Remove underline from links */
+            transition: background-color 0.3s, transform 0.2s;
+        }
+
+        /* Link text inside the menu */
+        #category-menu li a {
+            color: white; /* Light Grey */
+            display: block;
+            padding: 10px;
+            text-decoration: none;
+        }
+
+        /* Active menu item*/
+        #category-menu li a.active {
+            color: black;
+            font-weight: bold;
+            background-color: #FEFAE0;
+            border-radius: 10px;
+        }
+
+        .blur {
+            filter: blur(5px);
+            transition: filter 0.4s ease;
+        }
+
+        /* Hover effect for menu items */
+        #category-menu li a:hover {
+            color: black; /* Text Color */
+            background-color: #0D92F4; /* Dark Red Background on Hover */
+            border-radius: 10px;
+            /*animation: loadingBar 0.5s forwards;*/
+        }
+
+        /* Hover animation */
+        @keyframes loadingBar {
+            from {
+                width: 0;
+            }
+            to {
+                width: 100%;
+            }
+        }
+
+        /* Details Section Styling */
+        .details {
+            position: relative;
+            padding: 50px 20px;
+            background-color: #f2eed7; /* Dark blue background */
+            color: black;
+            text-align: center;
+        }
+
+        .details-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            overflow: hidden;
+        }
+
+        .details-background .background-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.4; /* Semi-transparent background image */
+        }
+
+        .details-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .details h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            font-weight: bold;
+            color: #444;
+        }
+
+        .details p {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+            color: #555;
+        }
+
+        .images-section {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 30px;
+        }
+
+        .images-section img {
+            width: 300px;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 10px;
+            transition: transform 0.3s ease;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .images-section img:hover {
+            transform: scale(1.05); /* Slight zoom on hover */
+        }
+
+
+        /* Team section styling */
+        .about-us {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            margin: 2rem auto;
+            padding: 1rem;
+            max-width: 100%;
+            width: 100%;
+        }
+
+        /* Single team member container centered */
+        .team-container {
+            background-color: #d9d9d9;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            width: 90%;
+            margin: 1rem;
+            padding: 1.5rem;
+            text-align: center;
+            transition: transform 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            overflow: hidden;
+            max-width: 600px;
+            border: 2.5px solid #07b092;
+        }
+
+        .team-container:hover {
+            transform: scale(1.03);
+            border: 4px solid #07b092;
+        }
+
+        .team-container:nth-child(odd) {
+            flex-direction: row;
+        }
+
+        .team-container:nth-child(even) {
+            flex-direction: row-reverse;
+        }
+
+        .team-left {
+            flex: 40%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        .team-img {
+            width: 200px;
+            height: 150px;
+            border-radius: 10px;
+            object-fit: cover;
+            border: 3px solid #0D92F4;; /* Updated to #FFD700 */
+            margin-bottom: 1rem;
+        }
+
+        .team-left h3 {
+            font-size: 1.5rem;
+            color: #0D92F4; /* Updated to #FFD700 */
+        }
+
+        .designation {
+            font-style: italic;
+            color: #555;
+            margin-top: 0.5rem;
+        }
+
+        /* 60% size ratio for the text container */
+        .team-right {
+            flex: 75%;
+            padding-left: 20px;
+        }
+
+        /* Scrollable text */
+        .scrollable-text {
+            max-height: 150px;
+            overflow-y: auto;
+            padding: 0.5rem;
+            font-size: 0.9rem;
+            line-height: 1.6;
+            background-color: #07b092; /* Updated to #07b092 */
+            border-radius: 5px;
+            border-top: 1px solid #ddd;
+            text-align: left;
+        }
+
+        /* Scrollbar customization */
+        .scrollable-text::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        .scrollable-text::-webkit-scrollbar-track {
+            background-color: #FFD700; /* Updated to #FFD700 */
+        }
+
+        .scrollable-text::-webkit-scrollbar-thumb {
+            background-color: #FFD700; /* Updated to #FFD700 */
+            border-radius: 3px;
+        }
+
+        .team-container:nth-child(even) {
+            flex-direction: row-reverse;
+            text-align: right;
+        }
+
+        .team-container:nth-child(even) .team-right {
+            padding-left: 0;
+            padding-right: 20px;
+        }
+
+        .team-container:nth-child(even) .scrollable-text {
+            text-align: right;
+        }
+
+        /* Footer styling */
+        footer {
+            background-color: #07b092;
+            color: #D3D3D3;
+            padding: 40px 0;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+            z-index: 1000;
+            text-align: center;
+        }
+
+        .head h1 {
+            color: white;
+        }
+
+        .head span {
+            color: black;
+        }
+
+        .footer h1 {
+            margin: 0;
+            font-size: 2.5rem;
+            font-weight: bold;
+        }
+
+        .footer-container {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding-bottom: 20px;
+        }
+
+        .footer-content {
+            flex: 1;
+            margin: 20px;
+            min-width: 200px;
+        }
+
+        .footer-content h3 {
+            margin-bottom: 15px;
+            color: black;
+        }
+
+        .footer-content p,
+        .footer-content a {
+            color: #f5f5f5; /* Updated to #07b092 */
+            line-height: 1.6;
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight:bold;
+
+        }
+
+        .footer-content p{
+            text-size: 25px;
+        }
+
+        .footer-content a:hover {
+
+            text-decoration: underline;
+            transform: scale(1.01rem);
+        }
+
+        .footer-content quick-links{
+            flex-direction: column;
+        }
+
+        .quick-links ul {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            padding: 0;
+        }
+
+        .quick-links li {
+            margin-bottom: 10px;
+        }
+
+        .quick-links a {
+            color: white; /* Updated to #07b092 */
+            font-size: 0.9rem;
+            transition: color 0.3s;
+        }
+
+        .quick-links a:hover {
+            color: black;
+        }
+
+        .social-media ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .social-media li {
+            margin-bottom: 10px;
+        }
+
+        .social-media a {
+            color: #07b092; /* Updated to #07b092 */
+            font-size: 0.9rem;
+            transition: color 0.3s;
+        }
+
+        .social-media i {
+            margin-right: 8px;
+        }
+
+        .social-media a:hover {
+            color: black;
+        }
+
+        .footer-bottom {
+            background-color: #0e3149;
+            padding: 15px 0;
+        }
+
+        .footer-bottom p {
+            margin: 0;
+            font-size: 0.85rem;
+            color: #D3D3D3;
+        }
+
+
+        /* Media query for smaller screens (below 768px)*/
+        @media (max-width: 1000px) {
+            body {
+                padding-top: 60px;
+            }
+
+            header {
+                padding: 17px;
+                font-size: 0.9rem; /* Reduce font size */
+            }
+
+            .menu-icon, .close-icon {
+                font-size: 24px; /* Reduce icon size */
+            }
+
+            #category-menu {
+                width: 100%; /* Make the menu take the full width on small screens */
+                left: -100%; /* Start off-screen */
+            }
+
+            #category-menu.show {
+                left: 0; /* Slide in from the left */
+            }
+
+            .news-block {
+                padding: 1rem;
+                margin: 10px 0;
+            }
+
+            .news-container {
+                flex-direction: column; /* Stack the content vertically */
+                padding: 1rem;
+                border-radius: 5px; /* Reduce border radius */
+            }
+
+            .news-container img {
+                width: 100%; /* Make the image full-width*/
+            }
+
+            .news-container-left, .news-container-right {
+                width: 100%; /* Stack content on top of each other */
+                padding: 0.5rem;
+            }
+
+            .news-summary {
+                padding: 1rem; /* Add padding for readability */
+            }
+
+            footer {
+                padding: 15px 0; /* Reduce padding in the footer*/
+            }
+
+            .footer-content {
+                text-align: center;
+            }
+
+            .footer-content h3 {
+                font-size: 1rem; /* Adjust font size */
+            }
+
+            .footer-content p {
+                font-size: 0.8rem; /* Adjust paragraph font size*/
+            }
+        }
+    </style>
 </head>
 <body>
 
@@ -31,8 +555,26 @@
         <li><a href="{% url 'aboutus' %}">About Us</a></li>
     </ul>
 
-    <section class="about-us">
 
+    <section class="details">
+        <div class="details-background">
+            <img src="" alt="" class="background-image">
+        </div>
+
+        <div class="details-content">
+            <h2>Discover the Power of WorldWide Bulletin </h2>
+            <p> First para </p>
+            <p> Second para </p>
+            <div class="images-section">
+<!--                <img src="{% static 'image name' %}" alt="News Image 1">-->
+<!--                <img src="{% static 'image2.jpg' %}" alt="News Image 2">-->
+<!--                <img src="{% static 'image3.jpg' %}" alt="News Image 3">-->
+            </div>
+        </div>
+    </section>
+
+
+    <section class="about-us">
         <div class="team-container">
             <div class="team-left">
                 <img src="member1.jpg" alt="Member 1" class="team-img">
@@ -84,12 +626,12 @@
                 </div>
             </div>
         </div>
-
     </section>
+
 
     <footer>
         <div class="head">
-            <h1>WorldWide <span>Bulletin</span></h1>
+            <h1>WorldWide Bulletin<span></span></h1>
         </div>
 
         <div class="footer-container">
@@ -97,8 +639,7 @@
             <div class="footer-content about-us">
                 <h3>About Us</h3>
                 <p>Created By a Bunch of Universal Rookies</p>
-                <a href="{% url 'aboutus' %}">Your just a Click away
-                    Know More About Us</a>
+                <a href="{% url 'aboutus' %}">Your just a Click away Know More About Us</a>
             </div>
 
             <div class="footer-content quick-links">
@@ -112,29 +653,8 @@
                     <li><a href="{% url 'culture' %}">Culture</a></li>
                 </ul>
             </div>
-
-            <!-- Contact Section -->
-            <div class="footer-content contact-info">
-                <h3>Contact Info</h3>
-                <p>Email: teaiml@worldwidebulletin.com</p>
-                <p>Phone: +8097032232</p>
-            </div>
-
-            <!-- Social Media Section -->
-            <div class="footer-content social-media">
-                <h3>Follow Us</h3>
-                <ul>
-                    <li><a href="#"><i class="fab fa-facebook-f"></i> Facebook</a></li>
-                    <li><a href="#"><i class="fab fa-twitter"></i> Twitter</a></li>
-                    <li><a href="#"><i class="fab fa-instagram"></i> Instagram</a></li>
-                </ul>
-            </div>
         </div>
-
-        <div class="footer-bottom">
-            <p>&copy; 2024 WorldWide Bulletin. All Rights Reserved.</p>
-        </div>
-    </footer>
+        </footer>
 
     <script src="{% static 'script.js' %}"></script>
 
