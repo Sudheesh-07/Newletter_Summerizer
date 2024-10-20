@@ -43,7 +43,7 @@ async def scrape_element(session, url, tag):
             if img:
                 image.append(img[1]['src'])
             else:
-                image.append("https://upload.wikimedia.org/wikipedia/commons/1/14/No_Image_Available.jpg")
+                image.append("/static/images/noimage.png")
 
     url_join()
 
