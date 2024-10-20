@@ -6,7 +6,7 @@
     <title>About Us</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     {% load static %}
-    <link rel="stylesheet" href="{% static 'aboutus.css' %}">
+<!--    <link rel="stylesheet" href="{% static 'aboutus.css' %}">-->
     <style>
         * {
             margin: 0;
@@ -59,6 +59,17 @@
             color: red; /* Accent color for header */
         }
 
+        header h3 {
+            color: black;
+            text-align: left; /* Aligns the text to the left */
+            width: 100%; /* Ensures the h3 takes up the full width of its container */
+            height: 30px; /* Fixes the height */
+            border-radius: 10px;
+            margin-left: 30px; /* Removes any left margin */
+            padding-left: 10px; /* Optionally, adds padding for slight spacing */
+            margin-top: 0px;
+        }
+
         /* Navigation styling */
         nav {
             position: fixed;
@@ -90,7 +101,7 @@
         #category-menu {
             list-style-type: none;
             display: block;
-            background-color: #131852; /* Menu Background Color */
+            background-color: #048c7f; /* Menu Background Color */
             padding: 15px;
             position: fixed;
             top: 71px; /* Positioned below the header */
@@ -110,7 +121,7 @@
         #category-menu li a {
             list-style: none;
             margin: 15px 0;
-            border-bottom: 2px solid white; /* Dark Red Divider */
+            border-bottom: 2px solid black; /* Dark Red Divider */
             text-decoration: none; /* Remove underline from links */
             transition: background-color 0.3s, transform 0.2s;
         }
@@ -139,7 +150,7 @@
         /* Hover effect for menu items */
         #category-menu li a:hover {
             color: black; /* Text Color */
-            background-color: #0D92F4; /* Dark Red Background on Hover */
+            background-color: #b3e0dc; /* Dark Red Background on Hover */
             border-radius: 10px;
             /*animation: loadingBar 0.5s forwards;*/
         }
@@ -235,10 +246,10 @@
 
         /* Single team member container centered */
         .team-container {
-            background-color: #d9d9d9;
+            background-color: #fffde7;
             border-radius: 10px;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-            width: 90%;
+            width: 65%;
             margin: 1rem;
             padding: 1.5rem;
             text-align: center;
@@ -247,7 +258,7 @@
             flex-direction: column;
             align-items: center;
             overflow: hidden;
-            max-width: 600px;
+            max-height: 350px;
             border: 2.5px solid #07b092;
         }
 
@@ -265,7 +276,7 @@
         }
 
         .team-left {
-            flex: 40%;
+            flex: 50%;
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -274,8 +285,8 @@
         }
 
         .team-img {
-            width: 200px;
-            height: 150px;
+            width: 180px;
+            height: 220px;
             border-radius: 10px;
             object-fit: cover;
             border: 3px solid #0D92F4;; /* Updated to #FFD700 */
@@ -284,7 +295,7 @@
 
         .team-left h3 {
             font-size: 1.5rem;
-            color: #0D92F4; /* Updated to #FFD700 */
+            color: #0D92F4;
         }
 
         .designation {
@@ -295,38 +306,37 @@
 
         /* 60% size ratio for the text container */
         .team-right {
-            flex: 75%;
-            padding-left: 20px;
+            flex: 50%;
+            padding: 20px;
         }
 
         /* Scrollable text */
         .scrollable-text {
-            max-height: 150px;
+            max-height: auto;
+            width: auto;
             overflow-y: auto;
             padding: 0.5rem;
             font-size: 0.9rem;
             line-height: 1.6;
-            background-color: #07b092; /* Updated to #07b092 */
+            background-color: #b3e0dc; /* Updated to #07b092 */
             border-radius: 5px;
             border-top: 1px solid #ddd;
             text-align: left;
+            color: black;
         }
 
         /* Scrollbar customization */
-        .scrollable-text::-webkit-scrollbar {
-            width: 6px;
-        }
-
-        .scrollable-text::-webkit-scrollbar-track {
-            background-color: #FFD700; /* Updated to #FFD700 */
-        }
-
         .scrollable-text::-webkit-scrollbar-thumb {
-            background-color: #FFD700; /* Updated to #FFD700 */
+            background-color: #b3e0dc;
             border-radius: 3px;
         }
 
-        .team-container:nth-child(even) {
+        .scrollable-text::-webkit-scrollbar {
+            width: 6px;
+            color: black;
+        }
+
+        /*.team-container:nth-child(even) {
             flex-direction: row-reverse;
             text-align: right;
         }
@@ -338,7 +348,7 @@
 
         .team-container:nth-child(even) .scrollable-text {
             text-align: right;
-        }
+        }*/
 
         /* Footer styling */
         footer {
@@ -396,61 +406,25 @@
 
         }
 
-        .footer-content p{
-            text-size: 25px;
-        }
-
         .footer-content a:hover {
-
-            text-decoration: underline;
-            transform: scale(1.01rem);
-        }
-
-        .footer-content quick-links{
-            flex-direction: column;
-        }
-
-        .quick-links ul {
-            list-style: none;
-            display: flex;
-            flex-direction: column;
-            padding: 0;
-        }
-
-        .quick-links li {
-            margin-bottom: 10px;
-        }
-
-        .quick-links a {
-            color: white; /* Updated to #07b092 */
-            font-size: 0.9rem;
-            transition: color 0.3s;
-        }
-
-        .quick-links a:hover {
             color: black;
         }
 
-        .social-media ul {
+        .quick-links {
             list-style: none;
-            padding: 0;
+            margin-left:20px;
+            flex-direction: column;
         }
 
-        .social-media li {
-            margin-bottom: 10px;
-        }
-
-        .social-media a {
-            color: #07b092; /* Updated to #07b092 */
+        .quick-links a {
+            color: #FEFAE0;
             font-size: 0.9rem;
             transition: color 0.3s;
+            text-decoration: none;
+            padding:2px;
         }
 
-        .social-media i {
-            margin-right: 8px;
-        }
-
-        .social-media a:hover {
+        .quick-links a:hover {
             color: black;
         }
 
@@ -466,8 +440,8 @@
         }
 
 
-        /* Media query for smaller screens (below 768px)*/
-        @media (max-width: 1000px) {
+        /* Media query for smaller screens (below 768px) */
+        @media (max-width: 500px) {
             body {
                 padding-top: 60px;
             }
@@ -482,44 +456,51 @@
             }
 
             #category-menu {
-                width: 100%; /* Make the menu take the full width on small screens */
-                left: -100%; /* Start off-screen */
+                width: 75%; /* Make the menu take the full width on small screens */
+                left: -75%; /* Start off-screen */
             }
 
             #category-menu.show {
                 left: 0; /* Slide in from the left */
             }
 
-            .news-block {
-                padding: 1rem;
-                margin: 10px 0;
+            .details {
+                padding: 30px 10px; /* Reduce padding for details */
             }
 
-            .news-container {
-                flex-direction: column; /* Stack the content vertically */
-                padding: 1rem;
-                border-radius: 5px; /* Reduce border radius */
+            .images-section {
+                flex-direction: column; /* Stack images vertically */
+                align-items: center; /* Center align images */
             }
 
-            .news-container img {
-                width: 100%; /* Make the image full-width*/
+            .team-container {
+                flex-direction: column; /* Stack elements vertically */
+                align-items: center; /* Center items */
+                width: 90%; /* Full width with some margin */
+                margin: 10px 0; /* Add margin for spacing */
             }
 
-            .news-container-left, .news-container-right {
-                width: 100%; /* Stack content on top of each other */
-                padding: 0.5rem;
+            .team-left,
+            .team-right {
+                width: 100%; /* Full width for both sections */
+                text-align: center; /* Center text for better appearance */
+                flex-direction: column; /* Stack vertically */
             }
 
-            .news-summary {
-                padding: 1rem; /* Add padding for readability */
+            .scrollable-text {
+                max-height: 150px; /* Adjust height for smaller screens */
+                overflow-y: auto; /* Ensure it remains scrollable */
+                margin-top: 1rem; /* Add margin for spacing */
+                padding: 1rem; /* Add padding for better readability */
             }
 
             footer {
-                padding: 15px 0; /* Reduce padding in the footer*/
+                padding: 15px 0; /* Reduce padding in the footer */
             }
 
             .footer-content {
                 text-align: center;
+                flex: 1 1 100%; /* Allow full width */
             }
 
             .footer-content h3 {
@@ -527,9 +508,10 @@
             }
 
             .footer-content p {
-                font-size: 0.8rem; /* Adjust paragraph font size*/
+                font-size: 0.8rem; /* Adjust paragraph font size */
             }
         }
+
     </style>
 </head>
 <body>
@@ -538,10 +520,11 @@
 
     <header>
         <h1>WorldWide <span>Bulletin</span></h1>  <!-- here the span "APP" is in black color-->
+        <h3 id="current_page">{{ current_page }}</h3>
     </header>
 
     <nav>
-        <div class="menu-icon" onclick="toggleMenu()">☰</div>
+        <div id="menu-toggle" class="menu-icon" onclick="toggleMenu()">☰</div>
         <div class="close-icon" id="closeIcon" style="display:none;" onclick="toggleMenu()">✖</div>
     </nav>
 
@@ -558,13 +541,15 @@
 
     <section class="details">
         <div class="details-background">
+            {% load static %}
             <img src="" alt="" class="background-image">
         </div>
 
         <div class="details-content">
             <h2>Discover the Power of WorldWide Bulletin </h2>
-            <p> First para </p>
-            <p> Second para </p>
+            <p>WorldWide Bulletin is a project designed to address the issue of information overload in today’s fast-paced digital environment, where users struggle to filter through an overwhelming volume of articles and reports. It provides concise, structured news summaries that distill lengthy articles into key insights, allowing users to stay informed without spending excessive time reading.</p>
+            <p>Utilizing advanced Natural Language Processing (NLP) algorithms, WorldWide Bulletin scans various news sources to extract relevant points and synthesize them into brief summaries.The application includes a customization feature, enabling users to tailor their news feeds according to their preferences—be it Business, Arts, Culture or Innovation.</p>
+            <p></p>
             <div class="images-section">
 <!--                <img src="{% static 'image name' %}" alt="News Image 1">-->
 <!--                <img src="{% static 'image2.jpg' %}" alt="News Image 2">-->
@@ -577,20 +562,31 @@
     <section class="about-us">
         <div class="team-container">
             <div class="team-left">
-                <img src="member1.jpg" alt="Member 1" class="team-img">
+                <img src="{% static '/images/arin.jpg' %}" alt="arin" class="team-img">
                 <h3>Arin Thamke</h3>
                 <p class="designation">Your Post in Group</p>
             </div>
             <div class="team-right">
                 <div class="scrollable-text">
-                    <p>Add your summary here !!!</p>
+                    <p>* {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Body background color */
+        body {
+            padding-top: 90px;
+            font-family: 'Times New Roman', Times, serif;
+            background-color: #dad4b5; /* Light background color */
+            color: #D3D3D3;</p>
                 </div>
             </div>
         </div>
 
         <div class="team-container">
             <div class="team-left">
-                <img src="member2.jpg" alt="Member 2" class="team-img">
+                <img src="member2.jpg" alt="harish" class="team-img">
                 <h3>Harish Nadar</h3>
                 <p class="designation">Your Post in Group</p>
             </div>
@@ -603,20 +599,20 @@
 
         <div class="team-container">
             <div class="team-left">
-                <img src="member3.jpg" alt="Member 3" class="team-img">
+                <img src="{% static '/images/priti.jpg' %}" alt="priti" class="team-img">
                 <h3>Priti Singh</h3>
                 <p class="designation">Your Post in Group</p>
             </div>
             <div class="team-right">
                 <div class="scrollable-text">
-                    <p>Add your summary here !!!</p>
+                    <p>Priti Singh is a passionate tech enthusiast currently pursuing her undergraduate degree in AIML. She has been actively involved in building innovative digital solutions, with a focus on user-centric design and efficient documentation. Most recently, she contributed to a news summarizer app, where she worked on ensuring detailed and clear project documentation.</p>
                 </div>
             </div>
         </div>
 
         <div class="team-container">
             <div class="team-left">
-                <img src="member4.jpg" alt="Member 4" class="team-img">
+                <img src="member4.jpg" alt="sudheesh" class="team-img">
                 <h3>Sudheesh Shetty</h3>
                 <p class="designation">Your Post in Group</p>
             </div>
@@ -631,30 +627,32 @@
 
     <footer>
         <div class="head">
-            <h1>WorldWide Bulletin<span></span></h1>
+            <h1>WorldWide Bulletin</h1>
         </div>
 
         <div class="footer-container">
+            <!-- Quick Links Section -->
+            <div class="footer-content quick-links">
+                <h3>Quick Links</h3>
+                    <a href="{% url 'head_function' %}">Home</a>
+                    <a href="{% url 'news' %}">News</a>
+                    <a href="{% url 'inovation' %}">Inovation</a>
+                    <a href="{% url 'business' %}">Business</a>
+                    <a href="{% url 'arts' %}">Arts</a>
+                    <a href="{% url 'culture' %}">Culture</a>
+                    <a href="{% url 'aboutus' %}">AboutUs</a>
+            </div>
 
+            <!-- About Us Section -->
             <div class="footer-content about-us">
                 <h3>About Us</h3>
                 <p>Created By a Bunch of Universal Rookies</p>
-                <a href="{% url 'aboutus' %}">Your just a Click away Know More About Us</a>
-            </div>
-
-            <div class="footer-content quick-links">
-                <h3>Quick Links</h3>
-                <ul>
-                    <li><a href="{% url 'head_function' %}"><i class="fas fa-home"></i> Home</a></li>
-                    <li><a href="{% url 'news' %}">News</a></li>
-                    <li><a href="{% url 'inovation' %}">Inovation</a></li>
-                    <li><a href="{% url 'business' %}">Business</a></li>
-                    <li><a href="{% url 'arts' %}">Arts</a></li>
-                    <li><a href="{% url 'culture' %}">Culture</a></li>
-                </ul>
+                <a href="{% url 'aboutus' %}">Your just a Click away
+                    Know More About Us</a>
             </div>
         </div>
-        </footer>
+
+    </footer>
 
     <script src="{% static 'script.js' %}"></script>
 

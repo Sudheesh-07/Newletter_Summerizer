@@ -95,7 +95,7 @@ nav {
     background-color: hsl(204, 54%, 21%); /* Menu Background Color */
     padding: 15px;
     position: fixed;
-    top: 71px; /* Positioned below the header */
+    top: 74px; /* Positioned below the header */
     left: -250px;
     height: calc(100% - 70px);
     width: 250px;
@@ -365,7 +365,7 @@ footer {
 }
 
 .head span{
-    color: black;
+    color: white;
 }
 
 .footer-container {
@@ -401,45 +401,21 @@ footer {
     color: black;
 }
 
-.quick-links ul {
+.quick-links {
     list-style: none;
-    padding: 0;
-}
-
-.quick-links li {
-    margin-bottom: 10px;
+    margin-left:20px;
+    flex-direction: column;
 }
 
 .quick-links a {
     color: #FEFAE0;
     font-size: 0.9rem;
     transition: color 0.3s;
+    text-decoration: none;
+    padding:2px;
 }
 
 .quick-links a:hover {
-    color: black;
-}
-
-.social-media ul {
-    list-style: none;
-    padding: 0;
-}
-
-.social-media li {
-    margin-bottom: 10px;
-}
-
-.social-media a {
-    color: #FEFAE0;
-    font-size: 0.9rem;
-    transition: color 0.3s;
-}
-
-.social-media i {
-    margin-right: 8px;
-}
-
-.social-media a:hover {
     color: black;
 }
 
@@ -471,8 +447,8 @@ footer {
     }
 
     #category-menu {
-        width: 100%; /* Make the menu take the full width on small screens */
-        left: -100%; /* Start off-screen */
+        width: 75%; /* Make the menu take the full width on small screens */
+        left: -75%; /* Start off-screen */
     }
 
     #category-menu.show {
@@ -492,6 +468,10 @@ footer {
 
     .news-container img {
         width: 100%; /* Make the image full-width*/
+    }
+
+    .news-container:nth-child(even) {
+        flex-direction: row;
     }
 
     .news-container-left, .news-container-right {

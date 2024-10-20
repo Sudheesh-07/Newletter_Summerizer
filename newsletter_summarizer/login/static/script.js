@@ -49,3 +49,37 @@ document.addEventListener("DOMContentLoaded", function() {
     menuIcon.addEventListener("click", toggleMenu);
     closeIcon.addEventListener("click", toggleMenu);
 });
+
+
+document.addEventListener('DOMContentLoaded', function() {
+        const menuToggle = document.getElementById('menu-toggle');
+        const closeIcon = document.getElementById('closeIcon');
+        const menu = document.getElementById('category-menu');
+        const currentPageHeader = document.getElementById('current_page');
+
+        // Toggle menu visibility
+        menuToggle.addEventListener('click', function() {
+            menu.classList.toggle('show'); // Show/hide menu
+            closeIcon.style.display = menu.classList.contains('show') ? 'block' : 'none'; // Show close icon
+        });
+
+        // Close the menu when the close icon is clicked
+        closeIcon.addEventListener('click', function() {
+            menu.classList.remove('show');
+            closeIcon.style.display = 'none';
+        });
+
+        // Update the current page header and highlight active link
+        const links = menu.querySelectorAll('a');
+        links.forEach(link => {
+            // Highlight active link based on current page
+            if (link.href === window.location.href) {
+                link.classList.add('active'); // Add active class to the current page link
+            }
+            link.addEventListener('click', function(event) {
+                // Update the current page header when a link is clicked
+                const title = link.textContent; // Use link text as title
+                currentPageHeader.innerText = title; // Update the header
+            });
+        });
+    });

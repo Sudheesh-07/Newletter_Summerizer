@@ -76,6 +76,8 @@ arin{
 
 * Created an directory for images in the static folder and completed the About us page structure
 
-*
+* Updated the footer of all the pages and updates the UI of About Us
+
+* Adjusted the website to phone screen too
 
 }
