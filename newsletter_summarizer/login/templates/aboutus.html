@@ -306,35 +306,39 @@
 
         /* 60% size ratio for the text container */
         .team-right {
-            flex: 50%;
-            padding: 20px;
+            height: 300px; /* Set a fixed height for the outer container */
+            width: 400px; /* Set a fixed width for the container */
+             /* Optional background color */
+            border-radius: 8px;
+            border: 1px solid #ccc;
+
+            overflow: hidden; /* Hide overflow from outer container */
         }
 
-        /* Scrollable text */
+        /* Scrollable text box inside team-right */
         .scrollable-text {
-            max-height: auto;
-            width: auto;
-            overflow-y: auto;
+            height: 100%; /* Takes up the full height of the team-right container */
+            width: 100%; /* Takes up the full width */
+            overflow-y: auto; /* Enable vertical scrolling */
             padding: 0.5rem;
             font-size: 0.9rem;
             line-height: 1.6;
-            background-color: #b3e0dc; /* Updated to #07b092 */
+            background-color: #b3e0dc; /* Background color */
             border-radius: 5px;
-            border-top: 1px solid #ddd;
             text-align: left;
             color: black;
         }
 
-        /* Scrollbar customization */
+        /* Custom scrollbar styling */
         .scrollable-text::-webkit-scrollbar-thumb {
-            background-color: #b3e0dc;
+            background-color: #07b092; /* Customize scrollbar thumb color */
             border-radius: 3px;
         }
 
         .scrollable-text::-webkit-scrollbar {
             width: 6px;
-            color: black;
         }
+
 
         /*.team-container:nth-child(even) {
             flex-direction: row-reverse;
@@ -441,7 +445,7 @@
 
 
         /* Media query for smaller screens (below 768px) */
-        @media (max-width: 500px) {
+        @media (max-width: 750px) {
             body {
                 padding-top: 60px;
             }
@@ -520,11 +524,11 @@
 
     <header>
         <h1>WorldWide <span>Bulletin</span></h1>  <!-- here the span "APP" is in black color-->
-        <h3 id="current_page">{{ current_page }}</h3>
+        <h3 >About Us</h3>
     </header>
 
     <nav>
-        <div id="menu-toggle" class="menu-icon" onclick="toggleMenu()">☰</div>
+        <div class="menu-icon" onclick="toggleMenu()">☰</div>
         <div class="close-icon" id="closeIcon" style="display:none;" onclick="toggleMenu()">✖</div>
     </nav>
 
@@ -549,12 +553,13 @@
             <h2>Discover the Power of WorldWide Bulletin </h2>
             <p>WorldWide Bulletin is a project designed to address the issue of information overload in today’s fast-paced digital environment, where users struggle to filter through an overwhelming volume of articles and reports. It provides concise, structured news summaries that distill lengthy articles into key insights, allowing users to stay informed without spending excessive time reading.</p>
             <p>Utilizing advanced Natural Language Processing (NLP) algorithms, WorldWide Bulletin scans various news sources to extract relevant points and synthesize them into brief summaries.The application includes a customization feature, enabling users to tailor their news feeds according to their preferences—be it Business, Arts, Culture or Innovation.</p>
-            <p></p>
-            <div class="images-section">
+            <p>Ultimately, the project not only streamlines the way users engage with news but also promotes a more informed, efficient, and connected audience, making it a valuable solution to modern information challenges.</p>
+            <p>Thankyou for giving your precious time know more about us and our team.</p>
+<!--            <div class="images-section">-->
 <!--                <img src="{% static 'image name' %}" alt="News Image 1">-->
 <!--                <img src="{% static 'image2.jpg' %}" alt="News Image 2">-->
 <!--                <img src="{% static 'image3.jpg' %}" alt="News Image 3">-->
-            </div>
+<!--            </div>-->
         </div>
     </section>
 
@@ -568,18 +573,10 @@
             </div>
             <div class="team-right">
                 <div class="scrollable-text">
-                    <p>* {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        /* Body background color */
-        body {
-            padding-top: 90px;
-            font-family: 'Times New Roman', Times, serif;
-            background-color: #dad4b5; /* Light background color */
-            color: #D3D3D3;</p>
+                    <p>I’m Arin Thamke, currently a third-year Engineering student with a strong passion for User Interface development and Data Science. My journey in tech has been shaped by a keen interest in crafting intuitive, user-friendly designs that enhance the overall experience. Alongside my expertise in HTML, CSS, and JavaScript, I’ve also dived into Python and data visualization, blending my skills to create dynamic and responsive web applications.</p>
+                    <p>As the UI developer for the WorldWide Bulletin project, my primary goal was to create an intuitive platform that simplifies the contagious flow of information in today’s technological ecosystem. </p>
+                    <p>Recently,I developed a dynamic news feed using AJAX for seamless browsing and incorporated customizable categories to enhance user engagement. Diving further to understand preferences,created prototypes in Figma, focusing on a clean, responsive layout. Implementing HTML, CSS, and JavaScript and implementing the whole of in the Django framework of python.</p>
+                    <a href="https://www.linkedin.com/in/arin-thamke/" target="_blank">Connect with me on LinkedIn</a>
                 </div>
             </div>
         </div>
@@ -596,16 +593,14 @@
                         and Machine Learning (2024). My journey in technology has been fueled by a deep passion for
                         innovation and problem-solving. With a strong foundation in Python, I’ve specialized in
                         data science and visualization, and I’m always eager to explore how technology can be used to
-                        create impactful solutions.
-                        Recently, I had the opportunity to contribute as a backend developer and web scraper on
+                        create impactful solutions.</p>
+                    <p>Recently, I had the opportunity to contribute as a backend developer and web scraper on
                         an exciting project, where I streamlined data extraction and backend processes. This experience
                         helped me strengthen my technical skills and gain valuable hands-on experience.
                         I’m driven by the goal of using AI and machine learning to create efficient, intelligent systems
                         that make a difference in real-world applications.
-                        Feel free to connect with me!
-
-                        <a href="https://www.linkedin.com/in/harish-nadar-tig" target="_blank">Connect with me on LinkedIn</a>
-                    </p>
+                        Feel free to connect with me!</p>
+                    <a href="https://www.linkedin.com/in/harish-nadar-tig" target="_blank">Connect with me on LinkedIn</a>
                 </div>
             </div>
         </div>
@@ -624,12 +619,12 @@
                         Driven by curiosity and a commitment to continuous learning, she actively explores emerging
                         technologies and seeks opportunities to contribute to projects that make a difference
                         in the tech landscape.
-                        Her recent work on a news summarizer app involved ensuring clear and comprehensive project
+                    </p>
+                    <p>Her recent work on a news summarizer app involved ensuring clear and comprehensive project
                         documentation, which significantly enhanced user experience and facilitated team collaboration.
                         Priti is dedicated to leveraging her skills in AI and ML to create impactful solutions that
-                        address real-world challenges.
-                     <a href="https://www.linkedin.com/in/priti-singh-aba9602ba/" target="_blank">Connect with me on LinkedIn</a>
-                    </p>
+                        address real-world challenges.</p>
+                    <a href="https://www.linkedin.com/in/priti-singh-aba9602ba/" target="_blank">Connect with me on LinkedIn</a>
                 </div>
             </div>
         </div>
@@ -647,13 +642,13 @@
                         and actively participate in hackathons, which help sharpen my problem-solving and collaboration
                         skills. With hands-on experience in Python and Django, I’ve developed a strong foundation in
                         backend development and creating dynamic applications.
-                        Recently, I contributed to a project by researching deployment strategies and assisting with
+                    </p>
+                    <p>Recently, I contributed to a project by researching deployment strategies and assisting with
                         backend development, while also helping plan the user interface. These roles allowed me to
                         enhance my technical understanding and improve system efficiency. My goal is to become an AI/ML
                         developer and work on solutions that push the boundaries of technology and innovation.
-                        Let’s connect if you share an interest in AI, development, or technology!
-                        <a href="https://www.linkedin.com/in/sudheesh-shetty/" target="_blank">Connect with me on LinkedIn</a>
-                    </p>
+                        Let’s connect if you share an interest in AI, development, or technology!</p>
+                    <a href="https://www.linkedin.com/in/sudheesh-shetty/" target="_blank">Connect with me on LinkedIn</a>
                 </div>
             </div>
         </div>

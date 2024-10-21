@@ -432,7 +432,7 @@ footer {
 
 
 /* Media query for smaller screens (below 768px)*/
-@media (max-width: 500px) {
+@media (max-width: 750px) {
     body {
         padding-top: 60px;
     }
@@ -470,8 +470,8 @@ footer {
         width: 100%; /* Make the image full-width*/
     }
 
-    .news-container:nth-child(even) {
-        flex-direction: row;
+    .news-container:nth-child(odd) {
+        flex-direction: row-reverse;
     }
 
     .news-container-left, .news-container-right {
